@@ -17,7 +17,7 @@ int     change_chessboard(int (*a)[10], int where)
     while (i < 10)
     {
         a[where][i + where ] = where ;
-        a[i][i][where] = where;
+        a[i][where] = where;
         a[where][i] = where;
     }
 
