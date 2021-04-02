@@ -11,11 +11,11 @@ int     find_step(int i)
     }
     return (count);
 }
+
 int     ft_sqrt(int nb)
 {   
     int step;
     int sqrt;
-    int check;
 
     sqrt = 1;
     step = find_step(nb);
@@ -23,10 +23,10 @@ int     ft_sqrt(int nb)
         return(0);
     else if (nb == 1)
         return(1);
-    else
-    {
+    else if ((nb - step) > (nb+1 - find_step(nb+1)))
         sqrt += ft_sqrt(nb - step);
-    }
+    else
+        return (0);    
     return(sqrt);
 }
 
@@ -34,6 +34,11 @@ int     main()
 {
     int nb;
 
-    nb = 17;
-    printf("sqrt: %d", ft_sqrt(nb));
+    nb = -1;
+    while ( nb <10001)
+    { 
+        if (ft_sqrt(nb) || nb == 0)
+          printf("sqrt of %d = %d\n",  nb, ft_sqrt(nb));
+        nb++;
+    }
 }
